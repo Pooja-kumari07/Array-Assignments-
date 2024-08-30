@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Array Assignments</h1>
+    <script>
+      // 1.
+      const fruits = ["Apple", "Banana", "Mango"];
+
+      // Access the first and last element
+      const firstElement = fruits[0]; // "Apple"
+      const lastElement = fruits[fruits.length - 1]; // "Mango"
+
+      //   2.
+      // Replace "Banana" with "Orange"
+      fruits[fruits.indexOf("Banana")] = "Orange";
+
+      // Add "Pineapple" at the end of the array
+      fruits.push("Pineapple");
+
+      // Remove the first element of the array
+      fruits.shift();
+
+      //   3.
+      // Use map to create a new array with the lengths of each fruit name
+      const fruitLengths = fruits.map((fruit) => fruit.length);
+
+      // Use filter to create a new array with fruits that have more than 5 letters
+      const longFruits = fruits.filter((fruit) => fruit.length > 5);
+
+      //   4.
+      // Sort the fruits array in alphabetical order
+      fruits.sort();
+
+      // Reverse the order of elements in the sorted array
+      fruits.reverse();
+
+      //   5.
+      // Use find to get the first fruit that contains the letter "g"
+      const fruitWithG = fruits.find((fruit) => fruit.includes("g"));
+
+      // Use indexOf to find the index of "Mango"
+      const indexOfMango = fruits.indexOf("Mango");
+
+      //   6.
+      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      // Use map to create a new array where each number is squared
+      const squaredNumbers = numbers.map((number) => number ** 2);
+
+      // Use filter to create a new array containing only even numbers
+      const evenNumbers = numbers.filter((number) => number % 2 === 0);
+
+      //   7.
+      const expenses = [
+        { amount: 50, category: "Groceries" },
+        { amount: 20, category: "Transportation" },
+        { amount: 100, category: "Entertainment" },
+        { amount: 80, category: "Groceries" },
+        { amount: 30, category: "Transportation" },
+      ];
+
+      // Calculate the total amount spent
+      const totalAmount = expenses.reduce(
+        (total, expense) => total + expense.amount,
+        0
+      );
+
+      // Group expenses by category and calculate the total amount for each category
+      const expensesByCategory = expenses.reduce(
+        (acc, { amount, category }) => {
+          if (!acc[category]) {
+            acc[category] = 0;
+          }
+          acc[category] += amount;
+          return acc;
+        },
+        {}
+      );
+
+      //   8.
+      const nestedArray = [1, [2, [3, [4, 5]], 6], 7, [8, 9]];
+
+      function flattenArray(arr) {
+        return arr.reduce((flat, item) => {
+          return flat.concat(Array.isArray(item) ? flattenArray(item) : item);
+        }, []);
+      }
+
+      const flatArray = flattenArray(nestedArray);
+
+      //   9.
+      const car = {
+        make: "Toyota",
+        model: "Corolla",
+        year: 2020,
+      };
+
+      // Access the make and year properties
+      const carMake = car.make; // "Toyota"
+      const carYear = car.year; // 2020
+
+      //   10.
+      // Change the model of the car to "Camry"
+      car.model = "Camry";
+
+      // Add a new property color with the value "blue"
+      car.color = "blue";
+
+      //   11.
+      for (const key in car) {
+        console.log(`${key}: ${car[key]}`);
+      }
+
+      //   12.
+      const person = {
+        firstName: "John",
+        lastName: "Doe",
+        address: {
+          street: "123 Main St",
+          city: "Anytown",
+          zipCode: "12345",
+        },
+      };
+
+      // Access the city of the address
+      const city = person.address.city; // "Anytown"
+
+      //   13.
+      const students = [
+        { name: "Alice", grade: 90 },
+        { name: "Bob", grade: 85 },
+        { name: "Charlie", grade: 92 },
+      ];
+
+      // Use forEach to print the name and grade of each student
+      students.forEach((student) => {
+        console.log(`${student.name}: ${student.grade}`);
+      });
+
+      //   14.
+      const car = {
+        make: "Toyota",
+        model: "Camry",
+        year: 2020,
+      };
+
+      // Object destructuring
+      const { make, model } = car;
+
+      // Array destructuring
+      const [firstFruit, secondFruit] = fruits;
+
+      //   15.
+      const obj1 = { a: 1, b: 2 };
+      const obj2 = { b: 3, c: 4 };
+
+      // Use the spread operator to merge obj1 and obj2
+      const mergedObj = { ...obj1, ...obj2 };
+    </script>
+  </body>
+</html>
